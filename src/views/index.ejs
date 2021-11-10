@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-  
+
   <script src="https://canvas-gauges.com/download/latest/all/gauge.min.js"></script>
   <script src="/apexchart/apexcharts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -37,9 +37,9 @@
 <!-- ========================================================================================================================= -->
 
 <header class="header">
-  <div class="menubar">
+  <div>
     <h2 class="header_navbar">
-      <img src="/img/logo.png" alt="Dang load anh" style="width: 200px;" />
+      <img src="/img/logo.png" alt="Loading" style="width: 200px;" />
       <!--  ==================================== navigation ====================================-->
       <nav class="nav nav-tabs header_navbar-list" style="border: none;">
         <a class="nav-link header_navbar-item" id="home-tab" data-toggle="tab" href="#home" style="color: red;">Thí
@@ -53,15 +53,15 @@
     </h2>
   </div>
   <!--  ==================================== navigation on the right ====================================-->
-  <div class="statusbar" style="display: flex">
+  <div style="display: flex">
     <div class="group-icon1" style="display: flex">
       <div style="text-align: center; margin-right: 10px">
-        <i class="icon1 fa fa-user" aria-hidden="true"></i><br/>
-        <div style="margin-top: 5px;">Linh Hihi</div>
+        <i class="icon1 fa fa-user" aria-hidden="true"></i><br />
+        <div id="username" style="margin-top: 5px;">User</div>
       </div>
       <div style="text-align: center; margin-right: 10px; position: relative;" id="hanldeWifi">
-        <i class="icon1 fa fa-wifi" aria-hidden="true"></i><br/>
-        <div style="margin-top: 5px;">Wifi Free</div>
+        <i class="icon1 fa fa-wifi" aria-hidden="true"></i><br />
+        <div id="wifiname" style="margin-top: 5px;">Wifi</div>
         <div id="wifi">
           <div style="padding: 5px;">
             wifi1
@@ -76,7 +76,7 @@
       </div>
       <div style="text-align: center; margin-right: 10px">
         <i class="icon1 fa fa-battery-0" aria-hidden="true"></i><br />
-        <div style="margin-top: 5px;">85%</div>
+        <div id="power" style="margin-top: 5px;">85%</div>
       </div>
 
       <div>
@@ -94,7 +94,8 @@
     <!--  ==================================== Content in page Thi Nghiem ====================================-->
     <div class="tab-pane fade show active" id="home">
       <div class="body row">
-
+        <!--  ==================================== Thanh slide bar====================================-->
+        <!--  ========================================================================================-->
         <div id="queueDevice" class="list col-md-2 col-sm-12" style="padding-left: 25px;">
           <% listDeivce.forEach(function(listd) { %>
             <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section">
@@ -122,102 +123,6 @@
             </div>
             <%}); %>
         </div>
-        <!--  ==================================== Thanh slide bar====================================-->
-        <!--  ========================================================================================-->
-        <!-- <div class="list col-md-2 col-sm-3" style="padding-left: 25px;"> -->
-          <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">1</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">Tên cảm biến</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div> -->
-          <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">3</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">T100</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div> -->
-          <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">5</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">Tên cảm biến</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div> -->
-          <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">3</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">Tên cảm biến</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div> -->
-          <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">3</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">Tên cảm biến</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div> -->
-          <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">5</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">Tên cảm biến</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div> -->
-
-          <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <!-- <div class="item opensection" data-target="monitor-section">
-            <div class="notifi">5</div>
-            <div class="lside">
-              <div class="image"></div>
-              <div class="temp">23*C</div>
-            </div>
-            <div class="rside">
-              <div class="title">Chức năng đo</div>
-              <div class="type">Tên cảm biến</div>
-              <div class="date">23-11-2000 14:30</div>
-            </div>
-          </div>
-        </div> -->
 
         <!--  ==================================== Khoi do thi====================================-->
         <!--  ========================================================================================-->
@@ -236,8 +141,8 @@
                     <div id="guage_cpu"></div>
                   </div>
                 </div> -->
-                <!--  ==================================== do thi GAUGE DO AM====================================-->
-                <!-- <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+              <!--  ==================================== do thi GAUGE DO AM====================================-->
+              <!-- <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
                   <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
                     <h2 style="font-size:15px; font-weight: bold;" class="mdl-card__title-text">Lần đo 2</h2>
                   </div>
@@ -245,8 +150,8 @@
                     <div id="guage_ram"></div>
                   </div>
                 </div> -->
-                <!--  ==================================== do thi GAUGE CAN NANG====================================-->
-                <!-- <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+              <!--  ==================================== do thi GAUGE CAN NANG====================================-->
+              <!-- <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
                   <div class="mdl-card__title mdl-color--light-blue-600 mdl-color-text--white">
                     <h2 style="font-size:15px; font-weight: bold;" class="mdl-card__title-text">Lần đo 3</h2>
                   </div>
@@ -256,7 +161,8 @@
                 </div>
               </div> -->
               <!--  ==================================== do thi BIEU DO DUONG====================================-->
-              <div id="cpu_chart_panel1" class="cpu_chart_panel mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp" style="position:relative;overflow: inherit;display: none;">
+              <div id="cpu_chart_panel1" class="cpu_chart_panel mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp"
+                style="position:relative;overflow: inherit;display: none;">
                 <div class="show-sub-monitor opensection mdl-shadow--2dp" style="
                 position: absolute;
                 background-color: #006da1;
@@ -279,7 +185,51 @@
                 -o-user-select: none;
                 user-select: none;">=</div>
                 <div class="mdl-card__supporting-text">
-                  
+                  <!-- <div class="chart">
+                    <div class="toggle-chart-table-item cpu-chart" id="cpu1" style="height: 200px;"></div>
+                    <div class="toggle-chart-table-item" id="myTable_1" style="height: 200px;display:none;">
+                      <table>
+                        <tr>
+                          <th>Company</th>
+                          <th>Contact</th>
+                          <th>Country</th>
+                          <th>Country</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>a</td>
+                          <td>a</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>a</td>
+                          <td>a</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>a</td>
+                          <td>a</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>a</td>
+                          <td>a</td>
+                        </tr>
+                      </table>
+                    </div>
+
+                    <input data-target="cpu" class="toggle-chart-table" type="radio" name="chart" checked="true"
+                      style="margin-left: 100px; color: aqua;"> Biểu đồ đường
+                    <input data-target="myTable_1" class="toggle-chart-table" type="radio" name="chart"
+                      style="margin-left: 100px" id="none_chart"> Bảng
+                    <script>
+
+                    </script>
+                  </div> -->
                   <div class="chart">
                     <div class="toggle-chart-table-item" id="chartLine" style="height: 300px;"></div>
                     <div class="toggle-chart-table-item" id="myTable" style="height: 300px;display:none;">
@@ -292,7 +242,7 @@
                         </tr>
                       </table>
                     </div>
-                    <div class="toggle-chart-table-item" id="miterChart" style="height: 300px;display:none;">
+                    <div class="toggle-chart-table-item" id="miterChart" style="height: 400px;display:none;">
                       <div class="mdl-grid">
                         <!--  ==================================== do thi GAUGE NHIET DO====================================-->
                         <div class="mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
@@ -456,7 +406,7 @@
                           </div>
                         </div>
                       </div>
-                      
+
 
 
                       <script>
@@ -464,17 +414,17 @@
                       </script>
                     </div>
 
-                    <input data-target="chartLine" class="toggle-chart-table" type="radio" name="chart" checked = "true"
+                    <input data-target="chartLine" class="toggle-chart-table" type="radio" name="chart"
                       style="margin-left: 100px; color: aqua;"> Biểu đồ đường
-                    <input data-target="myTable" class="toggle-chart-table" type="radio" name="chart" 
+                    <input data-target="myTable" class="toggle-chart-table" type="radio" name="chart"
                       style="margin-left: 100px" id="none_chart"> Bảng
                     <input data-target="miterChart" class="toggle-chart-table" type="radio" name="chart"
                       style="margin-left: 100px" id="none_chart"> Miter
                   </div>
                 </div>
               </div>
-              
-              
+
+
 
               <div class="monitor-section control-section monitor w-100">
                 <div class="monitorcontent w-100" style="display: flex;flex-wrap: wrap;">
@@ -501,87 +451,100 @@
                     </div> -->
                   </div>
                   <div class="d-flex">
-                      <button id="btnStart" onclick="toggle()" type="button" class="button button1" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        <i class="icon1 fa fa-play-circle" aria-hidden="false"></i>
-                        <span id="btn" style="color: #fff"> Start</span>
-                      </button>
-                      <!-- Rounded switch -->
-                      <button type="button" class="button button2" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="reset()" id="DolaiBtn" >
-                        <!-- onclick="reMesur()" -->
-                        <i class="icon2 fa fa-tags" aria-hidden="false"></i>
-                        <span style="color: #000"> Đo lại</span>
-                      </button>
-                      <button type="button"  id="luotMoi" class="button button4" data-bs-toggle="modal" data-bs-target="#exampleModal3"
-                        style="padding: 20px; margin: 5px;">
-                        <i class="icon2 fa fa-area-chart" aria-hidden="false"></i>
-                        <span style="color: #000"> Lượt mới</span>
-                      </button>
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel3">
-                                Bạn có muốn tạo lượt mới không?
-                              </h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              <div class="modal-body"></div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                No
-                              </button>
-                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                                Yes
-                              </button>
-                            </div>
+                    <button id="start/stop" onclick="toggle()" type="button" class="button button1"
+                      data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <i class="icon1 fa fa-play-circle" aria-hidden="false"></i>
+                      <span id="btnStart" style="color: #fff"> Start</span>
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+                      <!-- hhiih -->
+
+                    </button>
+                    <!-- Rounded switch -->
+                    <button type="button" class="button button2" onclick="reMesur()" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal" id="DolaiBtn">
+                      <!-- onclick="reset()" -->
+                      <i class="icon2 fa fa-tags" aria-hidden="false"></i>
+                      <span style="color: #000"> Đo lại</span>
+                    </button>
+                    <button type="button" id="luotMoi" class="button button4" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal3" style="padding: 20px; margin: 5px;">
+                      <i class="icon2 fa fa-area-chart" aria-hidden="false"></i>
+                      <span style="color: #000"> Lượt mới</span>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel3">
+                              Bạn có muốn tạo lượt mới không?
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-body"></div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              No
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                              Yes
+                            </button>
                           </div>
                         </div>
                       </div>
-                      <button type="button" class="button button4" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                        style="padding: 0px">
-                        <i class="icon2 fa fa-save" aria-hidden="false"></i>
-                        <span style="color: #000"> Lưu bản đo</span>
-                      </button>
-                      <!-- Modal -->
-                      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel2">
-                                Lưu kết quả đo
-                              </h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              <span>
-                                Kết quả đo của bài sẽ được lưu với tên<b>Tiến Đạt - 5A</b>
-                                <br />
-                                - Chọn <b>Đồng ý</b> để lưu dữ liệu <br />
-                                - Chịn <b>Hủy</b> để đóng cửa sổ này <br />
-                              </span>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                Close
-                              </button>
-                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                                Save changes
-                              </button>
-                            </div>
+                    </div>
+                    <button type="button" class="button button4" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                      style="padding: 0px">
+                      <i class="icon2 fa fa-save" aria-hidden="false"></i>
+                      <span style="color: #000"> Lưu bản đo</span>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel2">
+                              Lưu kết quả đo
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <span>
+                              Kết quả đo của bài sẽ được lưu với tên<b>Tiến Đạt - 5A</b>
+                              <br />
+                              - Chọn <b>Đồng ý</b> để lưu dữ liệu <br />
+                              - Chịn <b>Hủy</b> để đóng cửa sổ này <br />
+                            </span>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                              Save changes
+                            </button>
                           </div>
                         </div>
                       </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
     <!--  ==================================== Content in page Bao Cao====================================-->
@@ -617,15 +580,15 @@
                 <div style="display: flex">
                   <div style="width: 40%; margin-right: 5%">
                     <label>Tên học sinh</label><br />
-                    <input type="text" class="styleInput use-keyboard-input" />
+                    <input id="usernameInput" type="text" class="styleInput use-keyboard-input" />
                   </div>
                   <div style="width: 40%; margin-left: 5%">
-                    <label>Tên học sinh</label><br />
-                    <input type="text" class="styleInput use-keyboard-input" />
+                    <label>Lớp</label><br />
+                    <input id="className" type="text" class="styleInput use-keyboard-input" />
                   </div>
                 </div>
               </form>
-              <div class="save">
+              <div id="saveUsername" class="save">
                 <i class="icon1 fa fa-save" aria-hidden="true"></i>Lưu
               </div>
               <div style="margin-top: 100px">
@@ -649,15 +612,15 @@
                 <div style="display: flex">
                   <div style="width: 40%; margin-right: 5%">
                     <label>Wifi</label><br />
-                    <input type="text" class="styleInput use-keyboard-input" />
+                    <input id="wifinameInput" type="text" class="styleInput use-keyboard-input" />
                   </div>
                   <div style="width: 40%; margin-left: 5%">
                     <label>Mật khẩu</label><br />
-                    <input type="text" class="styleInput use-keyboard-input" />
+                    <input id="passwordInput" type="password" class="styleInput use-keyboard-input" />
                   </div>
                 </div>
               </form>
-              <div class="save" style="text-align: center">Kết nối</div>
+              <div id="connectWifiBtn" class="save" style="text-align: center">Kết nối</div>
             </div>
           </div>
         </div>
@@ -673,7 +636,7 @@
             <div class="accordion-body" style="position: relative; height: 200px">
               <div>Chọn ngôn ngữ muốn hiển thị</div>
               <div style="font-weight: bold">
-                <input type="radio" name="nn" checked = "true" /> Tiếng Việt
+                <input type="radio" name="nn" /> Tiếng Việt
                 <input type="radio" name="nn" /> English
               </div>
               <div class="save">
@@ -724,19 +687,15 @@
   <script src="/bootstrap/js/bootstrap.min.js"></script>
   <script src="/main.js"></script>
   <script src="/keyboard/keyboard.js"></script>
-  
+
 </body>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-
 <script type="text/javascript">
   var socket = io();
-
   // socket.on('connection',function(){
-
   // })
-
   var data;
   var listDeviceOld;
   var listDeviceNew;
@@ -749,23 +708,18 @@
   var arrData1 = [];
   var arrData2 = [];
   var arrData3 = [];
-
   //var new_arr = ['Lần đo ' + countMesur].concat(arrData1);
-
   var arrToaDo1 = Array.from(Array(50).keys());
   var arrToaDo2 = Array.from(Array(50).keys());
   var arrToaDo3 = Array.from(Array(50).keys());
-
   document.getElementById("DolaiBtn").disabled = true;
   document.getElementById("DolaiBtn").style.backgroundColor = "gray";
   document.getElementById("luotMoi").disabled = true;
   document.getElementById("luotMoi").style.backgroundColor = "gray";
   var clicked = false;
-
   document.getElementById('saveUsername').addEventListener('click', function () {
     document.getElementById('username').innerHTML = document.getElementById('usernameInput').value;
   });
-
   document.getElementById('connectWifiBtn').addEventListener('click', function () {
     let obj = {
       wifiname: document.getElementById('wifinameInput').value,
@@ -773,7 +727,6 @@
     }
     socket.emit("connectWiFi", obj);
   });
-
   socket.on('listDevice', function (msg) {
     // new list Device
     listDeviceOld = msg;
@@ -798,7 +751,7 @@
         deviceId: listDeviceOld.length,
         pnpId: ""
       }
-      console.log("add Dievice",obj);
+      console.log("add Dievice", obj);
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -810,7 +763,6 @@
       xhttp.send(JSON.stringify(obj));
     }
   });
-
   var chartLinee = c3.generate({
     bindto: '#chartLine',
     padding: {
@@ -828,7 +780,6 @@
         show: true
       }
     },
-
     data: {
       type: "spline",
       x: 'x',
@@ -850,7 +801,6 @@
           text: 'Time',
           position: 'outer-center',
         }
-
       },
       y: {
         label: {
@@ -875,7 +825,7 @@
             ['Lần đo 1', ...arrData1]
           ],
         });
-        tableCreateRowData(x1++,1,lastValue);
+        tableCreateRowData(x1++, 1, lastValue);
         chartGause1.load({
           columns: [
             ['Đo lần 1', lastValue]
@@ -913,7 +863,6 @@
       document.getElementById("lastDataUpdate").innerHTML = lastValue;
     }
   });
-
   function newMer() {
     countMesur += 1;
     if (countMesur === 3) {
@@ -921,12 +870,11 @@
       document.getElementById("luotMoi").style.backgroundColor = "gray";
     }
   }
-
   function toggle() {
     if (!clicked == true) {
       clicked = true;
       document.getElementById("btnStart").innerHTML = "Stop";
-      document.getElementById("btnStart").style.backgroundColor = "red";
+      document.getElementById("start/stop").style.backgroundColor = "red";
       document.getElementById("DolaiBtn").disabled = false;
       document.getElementById("DolaiBtn").style.backgroundColor = "yellow";
       document.getElementById("luotMoi").disabled = false;
@@ -935,7 +883,7 @@
     else {
       clicked = false;
       document.getElementById("btnStart").innerHTML = "Start";
-      document.getElementById("btnStart").style.backgroundColor = "#4caf50";
+      document.getElementById("start/stop").style.backgroundColor = "#4caf50";
       document.getElementById("luotMoi").disabled = true;
       document.getElementById("luotMoi").style.backgroundColor = "gray";
       document.getElementById("DolaiBtn").disabled = true;
@@ -955,7 +903,6 @@
       xhttpUpdate.send(JSON.stringify(obj));
     }
   }
-
   function reMesur() {
     if (clicked === false) {
       return 0;
@@ -974,9 +921,7 @@
       arrData3 = [];
       chartLinee.flush();
     }
-
   }
-
   function saveDataStream() {
     var arr = {
       deviceType: deviceName,
@@ -989,9 +934,7 @@
     console.log("save Data");
     socket.emit('saveData', JSON.stringify(arr));
   }
-
   //document.getElementById('0').addEventListener()
-
   function tableCreateRowData(row, dataCount, data) {
     var table = document.getElementById('myTable');
     var rowId = 'tr' + row;
@@ -1009,7 +952,6 @@
     tr.appendChild(td);
     td.appendChild(document.createTextNode(data));
   }
-
 </script>
 <script type="text/javascript">
   google.charts.load('current', { packages: ['corechart'] });
@@ -1056,7 +998,7 @@
 
     chart.draw(data, options);
   }
-</script> -->
+</script>
 
 <!--Du lieu tra ve-->
 
@@ -1075,6 +1017,6 @@
   firebase.initializeApp(config);
   firebase.analytics();
 
-</script>
+</script> -->
 
 </html>

@@ -436,7 +436,7 @@
                       </script>
                     </div>
 
-                    <input data-target="chartLine" class="toggle-chart-table" type="radio" name="chart" checked ="true"
+                    <input data-target="chartLine" class="toggle-chart-table" type="radio" name="chart" checked = "true"
                       style="margin-left: 100px; color: aqua;"> Biểu đồ đường
                     <input data-target="myTable" class="toggle-chart-table" type="radio" name="chart" 
                       style="margin-left: 100px" id="none_chart"> Bảng
@@ -645,7 +645,7 @@
             <div class="accordion-body" style="position: relative; height: 200px">
               <div>Chọn ngôn ngữ muốn hiển thị</div>
               <div style="font-weight: bold">
-                <input type="radio" name="nn" /> Tiếng Việt
+                <input type="radio" name="nn" checked = "true" /> Tiếng Việt
                 <input type="radio" name="nn" /> English
               </div>
               <div class="save">
@@ -701,6 +701,7 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+
 <script type="text/javascript">
   var socket = io();
 
@@ -789,7 +790,7 @@
       right: 30
     },
     point: {
-      show: false
+      show: true
     },
     grid: {
       x: {

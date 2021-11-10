@@ -111,6 +111,7 @@ async function main() {
         console.log(err);
       } else {
         obj = JSON.parse(data);
+        console.log(obj);
         io.emit("listDevice", obj);
       }
     });

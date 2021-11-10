@@ -251,51 +251,7 @@
                 -o-user-select: none;
                 user-select: none;">=</div>
                 <div class="mdl-card__supporting-text">
-                  <!-- <div class="chart">
-                    <div class="toggle-chart-table-item cpu-chart" id="cpu1" style="height: 200px;"></div>
-                    <div class="toggle-chart-table-item" id="myTable_1" style="height: 200px;display:none;">
-                      <table>
-                        <tr>
-                          <th>Company</th>
-                          <th>Contact</th>
-                          <th>Country</th>
-                          <th>Country</th>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>a</td>
-                          <td>a</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>a</td>
-                          <td>a</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>a</td>
-                          <td>a</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>1</td>
-                          <td>a</td>
-                          <td>a</td>
-                        </tr>
-                      </table>
-                    </div>
-
-                    <input data-target="cpu" class="toggle-chart-table" type="radio" name="chart" checked="true"
-                      style="margin-left: 100px; color: aqua;"> Biểu đồ đường
-                    <input data-target="myTable_1" class="toggle-chart-table" type="radio" name="chart"
-                      style="margin-left: 100px" id="none_chart"> Bảng
-                    <script>
-
-                    </script>
-                  </div> -->
+                  
                   <div class="chart">
                     <div class="toggle-chart-table-item" id="chartLine" style="height: 300px;"></div>
                     <div class="toggle-chart-table-item" id="myTable" style="height: 300px;display:none;">
@@ -747,8 +703,11 @@
 <script src="/socket.io/socket.io.js"></script>
 <script type="text/javascript">
   var socket = io();
+
   // socket.on('connection',function(){
+
   // })
+
   var data;
   var listDeviceOld;
   var listDeviceNew;
@@ -761,18 +720,23 @@
   var arrData1 = [];
   var arrData2 = [];
   var arrData3 = [];
+
   //var new_arr = ['Lần đo ' + countMesur].concat(arrData1);
+
   var arrToaDo1 = Array.from(Array(50).keys());
   var arrToaDo2 = Array.from(Array(50).keys());
   var arrToaDo3 = Array.from(Array(50).keys());
+
   document.getElementById("DolaiBtn").disabled = true;
   document.getElementById("DolaiBtn").style.backgroundColor = "gray";
   document.getElementById("luotMoi").disabled = true;
   document.getElementById("luotMoi").style.backgroundColor = "gray";
   var clicked = false;
+
   document.getElementById('saveUsername').addEventListener('click', function () {
     document.getElementById('username').innerHTML = document.getElementById('usernameInput').value;
   });
+
   document.getElementById('connectWifiBtn').addEventListener('click', function () {
     let obj = {
       wifiname: document.getElementById('wifinameInput').value,
@@ -780,6 +744,7 @@
     }
     socket.emit("connectWiFi", obj);
   });
+
   socket.on('listDevice', function (msg) {
     // new list Device
     listDeviceOld = msg;
@@ -816,6 +781,7 @@
       xhttp.send(JSON.stringify(obj));
     }
   });
+
   var chartLinee = c3.generate({
     bindto: '#chartLine',
     padding: {
@@ -833,6 +799,7 @@
         show: true
       }
     },
+
     data: {
       type: "spline",
       x: 'x',
@@ -854,6 +821,7 @@
           text: 'Time',
           position: 'outer-center',
         }
+
       },
       y: {
         label: {
@@ -916,6 +884,7 @@
       document.getElementById("lastDataUpdate").innerHTML = lastValue;
     }
   });
+
   function newMer() {
     countMesur += 1;
     if (countMesur === 3) {
@@ -923,6 +892,7 @@
       document.getElementById("luotMoi").style.backgroundColor = "gray";
     }
   }
+
   function toggle() {
     if (!clicked == true) {
       clicked = true;
@@ -956,6 +926,7 @@
       xhttpUpdate.send(JSON.stringify(obj));
     }
   }
+
   function reMesur() {
     if (clicked === false) {
       return 0;
@@ -974,7 +945,9 @@
       arrData3 = [];
       chartLinee.flush();
     }
+
   }
+
   function saveDataStream() {
     var arr = {
       deviceType: deviceName,
@@ -987,7 +960,9 @@
     console.log("save Data");
     socket.emit('saveData', JSON.stringify(arr));
   }
+
   //document.getElementById('0').addEventListener()
+
   function tableCreateRowData(row, dataCount, data) {
     var table = document.getElementById('myTable');
     var rowId = 'tr' + row;
@@ -1005,6 +980,7 @@
     tr.appendChild(td);
     td.appendChild(document.createTextNode(data));
   }
+
 </script>
 <!-- <script type="text/javascript">
   google.charts.load('current', { packages: ['corechart'] });

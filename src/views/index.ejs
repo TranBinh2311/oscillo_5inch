@@ -731,284 +731,284 @@
 <script src="/socket.io/socket.io.js"></script>
 
 <script type="text/javascript">
-  var socket = io();
+  // var socket = io();
 
-  // socket.on('connection',function(){
+  // // socket.on('connection',function(){
 
-  // })
+  // // })
 
-  var data;
-  var listDeviceOld;
-  var listDeviceNew;
-  var deviceName;
-  var deviceNameDetails;
-  var lastValue;
-  var deviceId;
-  var countMesur = 1;
-  var dataCounter = 0;
-  var arrData1 = [];
-  var arrData2 = [];
-  var arrData3 = [];
+  // var data;
+  // var listDeviceOld;
+  // var listDeviceNew;
+  // var deviceName;
+  // var deviceNameDetails;
+  // var lastValue;
+  // var deviceId;
+  // var countMesur = 1;
+  // var dataCounter = 0;
+  // var arrData1 = [];
+  // var arrData2 = [];
+  // var arrData3 = [];
 
-  //var new_arr = ['Lần đo ' + countMesur].concat(arrData1);
+  // //var new_arr = ['Lần đo ' + countMesur].concat(arrData1);
 
-  var arrToaDo1 = Array.from(Array(50).keys());
-  var arrToaDo2 = Array.from(Array(50).keys());
-  var arrToaDo3 = Array.from(Array(50).keys());
+  // var arrToaDo1 = Array.from(Array(50).keys());
+  // var arrToaDo2 = Array.from(Array(50).keys());
+  // var arrToaDo3 = Array.from(Array(50).keys());
 
-  document.getElementById("DolaiBtn").disabled = true;
-  document.getElementById("DolaiBtn").style.backgroundColor = "gray";
-  document.getElementById("luotMoi").disabled = true;
-  document.getElementById("luotMoi").style.backgroundColor = "gray";
-  var clicked = false;
+  // document.getElementById("DolaiBtn").disabled = true;
+  // document.getElementById("DolaiBtn").style.backgroundColor = "gray";
+  // document.getElementById("luotMoi").disabled = true;
+  // document.getElementById("luotMoi").style.backgroundColor = "gray";
+  // var clicked = false;
 
-  document.getElementById('saveUsername').addEventListener('click', function () {
-    document.getElementById('username').innerHTML = document.getElementById('usernameInput').value;
-  });
+  // document.getElementById('saveUsername').addEventListener('click', function () {
+  //   document.getElementById('username').innerHTML = document.getElementById('usernameInput').value;
+  // });
 
-  document.getElementById('connectWifiBtn').addEventListener('click', function () {
-    let obj = {
-      wifiname: document.getElementById('wifinameInput').value,
-      password: document.getElementById('passwordInput').value
-    }
-    socket.emit("connectWiFi", obj);
-  });
+  // document.getElementById('connectWifiBtn').addEventListener('click', function () {
+  //   let obj = {
+  //     wifiname: document.getElementById('wifinameInput').value,
+  //     password: document.getElementById('passwordInput').value
+  //   }
+  //   socket.emit("connectWiFi", obj);
+  // });
 
-  socket.on('listDevice', function (msg) {
-    // new list Device
-    listDeviceOld = msg;
-    for (let i = 0; i < document.getElementById("queueDevice").childElementCount; i++) document.getElementById(i.toString()).style.backgroundColor = "white";
-    let index = listDeviceOld.findIndex(element => element.deviceName === deviceNameDetails);
-    if (index > -1) {
-      document.getElementById(index.toString()).style.backgroundColor = "green";
-      // document.getElementById(index.toString()).classList.add('green');
-      document.getElementById(index.toString()).addEventListener('click', () => {
-        document.getElementById("deviceTypeVw").innerHTML = listDeviceOld[index].deviceType;
-        document.getElementById("deviceNameVw").innerHTML = listDeviceOld[index].deviceName;
-        document.getElementById("lastTimeUpdate").innerHTML = (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes());
-        deviceId = listDeviceOld[index].deviceId;
-      });
-    }
-    else {
-      let obj = {
-        deviceType: deviceName,
-        deviceName: deviceNameDetails,
-        lastUpdate: (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes()),
-        lastValue: lastValue,
-        deviceId: listDeviceOld.length,
-        pnpId: ""
-      }
-      console.log("add Dievice",obj);
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          location.reload();
-        }
-      };
-      xhttp.open("POST", "/v1/addDevice", true);
-      xhttp.setRequestHeader('Content-Type', 'application/json');
-      xhttp.send(JSON.stringify(obj));
-    }
-  });
+  // socket.on('listDevice', function (msg) {
+  //   // new list Device
+  //   listDeviceOld = msg;
+  //   for (let i = 0; i < document.getElementById("queueDevice").childElementCount; i++) document.getElementById(i.toString()).style.backgroundColor = "white";
+  //   let index = listDeviceOld.findIndex(element => element.deviceName === deviceNameDetails);
+  //   if (index > -1) {
+  //     document.getElementById(index.toString()).style.backgroundColor = "green";
+  //     // document.getElementById(index.toString()).classList.add('green');
+  //     document.getElementById(index.toString()).addEventListener('click', () => {
+  //       document.getElementById("deviceTypeVw").innerHTML = listDeviceOld[index].deviceType;
+  //       document.getElementById("deviceNameVw").innerHTML = listDeviceOld[index].deviceName;
+  //       document.getElementById("lastTimeUpdate").innerHTML = (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes());
+  //       deviceId = listDeviceOld[index].deviceId;
+  //     });
+  //   }
+  //   else {
+  //     let obj = {
+  //       deviceType: deviceName,
+  //       deviceName: deviceNameDetails,
+  //       lastUpdate: (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes()),
+  //       lastValue: lastValue,
+  //       deviceId: listDeviceOld.length,
+  //       pnpId: ""
+  //     }
+  //     console.log("add Dievice",obj);
+  //     var xhttp = new XMLHttpRequest();
+  //     xhttp.onreadystatechange = function () {
+  //       if (this.readyState == 4 && this.status == 200) {
+  //         location.reload();
+  //       }
+  //     };
+  //     xhttp.open("POST", "/v1/addDevice", true);
+  //     xhttp.setRequestHeader('Content-Type', 'application/json');
+  //     xhttp.send(JSON.stringify(obj));
+  //   }
+  // });
 
-  var chartLinee = c3.generate({
-    bindto: '#chartLine',
-    padding: {
-      left: 30,
-      right: 30
-    },
-    point: {
-      show: true
-    },
-    grid: {
-      x: {
-        show: true
-      },
-      y: {
-        show: true
-      }
-    },
+  // var chartLinee = c3.generate({
+  //   bindto: '#chartLine',
+  //   padding: {
+  //     left: 30,
+  //     right: 30
+  //   },
+  //   point: {
+  //     show: false
+  //   },
+  //   grid: {
+  //     x: {
+  //       show: true
+  //     },
+  //     y: {
+  //       show: true
+  //     }
+  //   },
 
-    data: {
-      type: "spline",
-      x: 'x',
-      columns: [
-        ['x', ...arrToaDo1],
-        ['Lần đo 1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        ['Lần đo 2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
-        ['Lần đo 3', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-      ],
-      connectNull: false
-    },
-    axis: {
-      x: {
-        type: 'number',
-        tick: {
-          format: '%M:%S'
-        },
-        label: {
-          text: 'Time',
-          position: 'outer-center',
-        }
+  //   data: {
+  //     type: "spline",
+  //     x: 'x',
+  //     columns: [
+  //       ['x', ...arrToaDo1],
+  //       ['Lần đo 1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+  //       ['Lần đo 2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null],
+  //       ['Lần đo 3', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+  //     ],
+  //     connectNull: false
+  //   },
+  //   axis: {
+  //     x: {
+  //       type: 'number',
+  //       tick: {
+  //         format: '%M:%S'
+  //       },
+  //       label: {
+  //         text: 'Time',
+  //         position: 'outer-center',
+  //       }
 
-      },
-      y: {
-        label: {
-          text: '',
-          position: 'outer-middle',
-        }
-      }
-    }
-  });
-  var x1 = 0;
-  socket.on('data', function (msg) {
-    let dataSplit = msg.split(',');
-    deviceName = dataSplit[0].split('@')[1];
-    deviceNameDetails = dataSplit[1];
-    lastValue = dataSplit[2];
-    if (clicked === true) {
-      if (countMesur == 1) {
-        //arrToaDo1.push(dataCounter);
-        arrData1.push(lastValue);
-        chartLinee.load({
-          columns: [
-            ['Lần đo 1', ...arrData1]
-          ],
-        });
-        tableCreateRowData(x1++,1,lastValue);
-        chartGause1.load({
-          columns: [
-            ['Đo lần 1', lastValue]
-          ]
-        });
-      }
-      else if (countMesur == 2) {
-        let x2 = 0;
-        console.log("Debug ", arrData2);
-        arrData2.push(lastValue);
-        chartLinee.load({
-          columns: [
-            ['Lần đo 2', ...arrData2]
-          ],
-        });
-        chartGause2.load({
-          columns: [
-            ['Đo lần 2', lastValue]
-          ]
-        });
-      } else if (countMesur == 3) {
-        let x3 = 0;
-        arrData3.push(lastValue);
-        chartLinee.load({
-          columns: [
-            ['Lần đo 3', ...arrData3]
-          ],
-        });
-        chartGause3.load({
-          columns: [
-            ['Đo lần 3', lastValue]
-          ]
-        });
-      }
-      document.getElementById("lastDataUpdate").innerHTML = lastValue;
-    }
-  });
+  //     },
+  //     y: {
+  //       label: {
+  //         text: '',
+  //         position: 'outer-middle',
+  //       }
+  //     }
+  //   }
+  // });
+  // var x1 = 0;
+  // socket.on('data', function (msg) {
+  //   let dataSplit = msg.split(',');
+  //   deviceName = dataSplit[0].split('@')[1];
+  //   deviceNameDetails = dataSplit[1];
+  //   lastValue = dataSplit[2];
+  //   if (clicked === true) {
+  //     if (countMesur == 1) {
+  //       //arrToaDo1.push(dataCounter);
+  //       arrData1.push(lastValue);
+  //       chartLinee.load({
+  //         columns: [
+  //           ['Lần đo 1', ...arrData1]
+  //         ],
+  //       });
+  //       tableCreateRowData(x1++,1,lastValue);
+  //       chartGause1.load({
+  //         columns: [
+  //           ['Đo lần 1', lastValue]
+  //         ]
+  //       });
+  //     }
+  //     else if (countMesur == 2) {
+  //       let x2 = 0;
+  //       console.log("Debug ", arrData2);
+  //       arrData2.push(lastValue);
+  //       chartLinee.load({
+  //         columns: [
+  //           ['Lần đo 2', ...arrData2]
+  //         ],
+  //       });
+  //       chartGause2.load({
+  //         columns: [
+  //           ['Đo lần 2', lastValue]
+  //         ]
+  //       });
+  //     } else if (countMesur == 3) {
+  //       let x3 = 0;
+  //       arrData3.push(lastValue);
+  //       chartLinee.load({
+  //         columns: [
+  //           ['Lần đo 3', ...arrData3]
+  //         ],
+  //       });
+  //       chartGause3.load({
+  //         columns: [
+  //           ['Đo lần 3', lastValue]
+  //         ]
+  //       });
+  //     }
+  //     document.getElementById("lastDataUpdate").innerHTML = lastValue;
+  //   }
+  // });
 
-  function newMer() {
-    countMesur += 1;
-    if (countMesur === 3) {
-      document.getElementById("luotMoi").disabled = true;
-      document.getElementById("luotMoi").style.backgroundColor = "gray";
-    }
-  }
+  // function newMer() {
+  //   countMesur += 1;
+  //   if (countMesur === 3) {
+  //     document.getElementById("luotMoi").disabled = true;
+  //     document.getElementById("luotMoi").style.backgroundColor = "gray";
+  //   }
+  // }
 
-  function toggle() {
-    if (!clicked == true) {
-      clicked = true;
-      document.getElementById("btnStart").innerHTML = "Stop";
-      document.getElementById("start/stop").style.backgroundColor = "red";
-      document.getElementById("DolaiBtn").disabled = false;
-      document.getElementById("DolaiBtn").style.backgroundColor = "yellow";
-      document.getElementById("luotMoi").disabled = false;
-      document.getElementById("luotMoi").style.backgroundColor = "white";
-    }
-    else {
-      clicked = false;
-      document.getElementById("btnStart").innerHTML = "Start";
-      document.getElementById("start/stop").style.backgroundColor = "#4caf50";
-      document.getElementById("luotMoi").disabled = true;
-      document.getElementById("luotMoi").style.backgroundColor = "gray";
-      document.getElementById("DolaiBtn").disabled = true;
-      document.getElementById("DolaiBtn").style.backgroundColor = "gray";
-      reMesur();
-      let obj = {
-        deviceType: deviceName,
-        deviceName: deviceNameDetails,
-        lastUpdate: (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes()),
-        lastValue: lastValue,
-        pnpId: "",
-        deviceId: deviceId
-      }
-      var xhttpUpdate = new XMLHttpRequest();
-      xhttpUpdate.open("POST", "/v1/updateDevice", true);
-      xhttpUpdate.setRequestHeader('Content-Type', 'application/json');
-      xhttpUpdate.send(JSON.stringify(obj));
-    }
-  }
+  // function toggle() {
+  //   if (!clicked == true) {
+  //     clicked = true;
+  //     document.getElementById("btnStart").innerHTML = "Stop";
+  //     document.getElementById("start/stop").style.backgroundColor = "red";
+  //     document.getElementById("DolaiBtn").disabled = false;
+  //     document.getElementById("DolaiBtn").style.backgroundColor = "yellow";
+  //     document.getElementById("luotMoi").disabled = false;
+  //     document.getElementById("luotMoi").style.backgroundColor = "white";
+  //   }
+  //   else {
+  //     clicked = false;
+  //     document.getElementById("btnStart").innerHTML = "Start";
+  //     document.getElementById("start/stop").style.backgroundColor = "#4caf50";
+  //     document.getElementById("luotMoi").disabled = true;
+  //     document.getElementById("luotMoi").style.backgroundColor = "gray";
+  //     document.getElementById("DolaiBtn").disabled = true;
+  //     document.getElementById("DolaiBtn").style.backgroundColor = "gray";
+  //     reMesur();
+  //     let obj = {
+  //       deviceType: deviceName,
+  //       deviceName: deviceNameDetails,
+  //       lastUpdate: (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes()),
+  //       lastValue: lastValue,
+  //       pnpId: "",
+  //       deviceId: deviceId
+  //     }
+  //     var xhttpUpdate = new XMLHttpRequest();
+  //     xhttpUpdate.open("POST", "/v1/updateDevice", true);
+  //     xhttpUpdate.setRequestHeader('Content-Type', 'application/json');
+  //     xhttpUpdate.send(JSON.stringify(obj));
+  //   }
+  // }
 
-  function reMesur() {
-    if (clicked === false) {
-      return 0;
-    }
-    if (countMesur === 1) {
-      arrData1 = [];
-      // chartLinee.unload({ ids: 'Lần đo 1' });
-      chartLinee.flush()
-    }
-    else if (countMesur === 2) {
-      arrData2 = [];
-      // chartLinee.unload({ ids: ['Lần đo 1', 'Lần đo 2'] });
-      chartLinee.flush()
-    }
-    else if (countMesur === 3) {
-      arrData3 = [];
-      chartLinee.flush();
-    }
+  // function reMesur() {
+  //   if (clicked === false) {
+  //     return 0;
+  //   }
+  //   if (countMesur === 1) {
+  //     arrData1 = [];
+  //     // chartLinee.unload({ ids: 'Lần đo 1' });
+  //     chartLinee.flush()
+  //   }
+  //   else if (countMesur === 2) {
+  //     arrData2 = [];
+  //     // chartLinee.unload({ ids: ['Lần đo 1', 'Lần đo 2'] });
+  //     chartLinee.flush()
+  //   }
+  //   else if (countMesur === 3) {
+  //     arrData3 = [];
+  //     chartLinee.flush();
+  //   }
 
-  }
+  // }
 
-  function saveDataStream() {
-    var arr = {
-      deviceType: deviceName,
-      deviceName: deviceNameDetails,
-      lastUpdate: (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes()),
-      Lan1: arrData1,
-      Lan2: arrData2,
-      Lan3: arrData3
-    }
-    console.log("save Data");
-    socket.emit('saveData', JSON.stringify(arr));
-  }
+  // function saveDataStream() {
+  //   var arr = {
+  //     deviceType: deviceName,
+  //     deviceName: deviceNameDetails,
+  //     lastUpdate: (new Date()).getFullYear() + '-' + ((new Date().getMonth()) + 1) + '-' + ((new Date()).getDate()) + ' ' + ((new Date()).getHours()) + '-' + ((new Date()).getMinutes()),
+  //     Lan1: arrData1,
+  //     Lan2: arrData2,
+  //     Lan3: arrData3
+  //   }
+  //   console.log("save Data");
+  //   socket.emit('saveData', JSON.stringify(arr));
+  // }
 
-  //document.getElementById('0').addEventListener()
+  // //document.getElementById('0').addEventListener()
 
-  function tableCreateRowData(row, dataCount, data) {
-    var table = document.getElementById('myTable');
-    var rowId = 'tr' + row;
-    var dataCountId = 'td' + row;
-    if (dataCount === 1) {
-      var tr = document.createElement('tr');
-      tr.setAttribute("id", rowId);
-    }
-    else {
-      var tr = document.getElementById(rowId);
-    }
-    var td = document.createElement('td');
-    td.setAttribute("id", dataCountId);
-    table.appendChild(tr);
-    tr.appendChild(td);
-    td.appendChild(document.createTextNode(data));
-  }
+  // function tableCreateRowData(row, dataCount, data) {
+  //   var table = document.getElementById('myTable');
+  //   var rowId = 'tr' + row;
+  //   var dataCountId = 'td' + row;
+  //   if (dataCount === 1) {
+  //     var tr = document.createElement('tr');
+  //     tr.setAttribute("id", rowId);
+  //   }
+  //   else {
+  //     var tr = document.getElementById(rowId);
+  //   }
+  //   var td = document.createElement('td');
+  //   td.setAttribute("id", dataCountId);
+  //   table.appendChild(tr);
+  //   tr.appendChild(td);
+  //   td.appendChild(document.createTextNode(data));
+  // }
 
 </script>
 <!-- <script type="text/javascript">

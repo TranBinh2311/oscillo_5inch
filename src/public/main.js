@@ -187,6 +187,7 @@ var chartcpu1 = c3.generate({
     },
   },
   data: {
+    type: "spline",
     columns: [["Lần đo 1"], ["Lần đo 2"], ["Lần đo 3"]],
     connectNull: false,
   },

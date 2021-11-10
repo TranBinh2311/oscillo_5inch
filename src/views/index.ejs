@@ -94,11 +94,39 @@
     <!--  ==================================== Content in page Thi Nghiem ====================================-->
     <div class="tab-pane fade show active" id="home">
       <div class="body row">
+
+        <div id="queueDevice" class="list col-md-2 col-sm-12" style="padding-left: 25px;">
+          <% listDeivce.forEach(function(listd) { %>
+            <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section">
+              <!-- <div class="notifi" style=" visibility: hidden">1</div> -->
+              <div class="notifi"></div>
+              <div class="lside">
+                <div class="image"></div>
+                <div class="temp">
+                  <strong>
+                    <%=listd.lastValue%>
+                  </strong>
+                </div>
+              </div>
+              <div class="rside">
+                <div class="title">
+                  <%=listd.deviceType%>
+                </div>
+                <div class="type">
+                  <%=listd.deviceName%>
+                </div>
+                <div class="date">
+                  <%=listd.lastUpdate%>
+                </div>
+              </div>
+            </div>
+            <%}); %>
+        </div>
         <!--  ==================================== Thanh slide bar====================================-->
         <!--  ========================================================================================-->
-        <div class="list col-md-2 col-sm-3" style="padding-left: 25px;">
+        <!-- <div class="list col-md-2 col-sm-3" style="padding-left: 25px;"> -->
           <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">1</div>
             <div class="lside">
               <div class="image"></div>
@@ -109,9 +137,9 @@
               <div class="type">Tên cảm biến</div>
               <div class="date">23-11-2000 14:30</div>
             </div>
-          </div>
+          </div> -->
           <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">3</div>
             <div class="lside">
               <div class="image"></div>
@@ -122,9 +150,9 @@
               <div class="type">T100</div>
               <div class="date">23-11-2000 14:30</div>
             </div>
-          </div>
+          </div> -->
           <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">5</div>
             <div class="lside">
               <div class="image"></div>
@@ -135,9 +163,9 @@
               <div class="type">Tên cảm biến</div>
               <div class="date">23-11-2000 14:30</div>
             </div>
-          </div>
+          </div> -->
           <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">3</div>
             <div class="lside">
               <div class="image"></div>
@@ -148,9 +176,9 @@
               <div class="type">Tên cảm biến</div>
               <div class="date">23-11-2000 14:30</div>
             </div>
-          </div>
+          </div> -->
           <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">3</div>
             <div class="lside">
               <div class="image"></div>
@@ -161,9 +189,9 @@
               <div class="type">Tên cảm biến</div>
               <div class="date">23-11-2000 14:30</div>
             </div>
-          </div>
+          </div> -->
           <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">5</div>
             <div class="lside">
               <div class="image"></div>
@@ -174,10 +202,10 @@
               <div class="type">Tên cảm biến</div>
               <div class="date">23-11-2000 14:30</div>
             </div>
-          </div>
+          </div> -->
 
           <!--  ==================================== Khoi con mau trang trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">5</div>
             <div class="lside">
               <div class="image"></div>
@@ -189,7 +217,7 @@
               <div class="date">23-11-2000 14:30</div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!--  ==================================== Khoi do thi====================================-->
         <!--  ========================================================================================-->

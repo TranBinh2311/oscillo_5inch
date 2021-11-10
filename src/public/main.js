@@ -169,182 +169,182 @@ $(".opensection").on("click", function () {
 //     height: 150,
 //   },
 // });
-var chartcpu1 = c3.generate({
-  bindto: "#chartLine",
-  padding: {
-    left: 50,
-    right: 0,
-  },
-  point: {
-    show: false,
-  },
-  grid: {
-    x: {
-      show: true,
-    },
-    y: {
-      show: true,
-    },
-  },
-  data: {
-    type: "spline",
-    columns: [["Lần đo 1"], ["Lần đo 2"], ["Lần đo 3"]],
-    connectNull: false,
-  },
-  axis: {
-    x: {
-      type: "number",
-      label: {
-        text: "Time",
-        position: "outer-center",
-      },
-    },
-    y: {
-      max: 100,
-      min: 10,
-      label: {
-        text: "%",
-        position: "outer-middle",
-      },
-    },
-  },
-});
-// var chartcpu2 = c3.generate({
-//     bindto: "#cpu2",
-//     padding: {
-//       left: 50,
-//       right: 0,
+// var chartcpu1 = c3.generate({
+//   bindto: "#chartLine",
+//   padding: {
+//     left: 50,
+//     right: 0,
+//   },
+//   point: {
+//     show: false,
+//   },
+//   grid: {
+//     x: {
+//       show: true,
 //     },
-//     point: {
-//       show: false,
+//     y: {
+//       show: true,
 //     },
-//     grid: {
-//       x: {
-//         show: true,
-//       },
-//       y: {
-//         show: true,
+//   },
+//   data: {
+//     type: "spline",
+//     columns: [["Lần đo 1"], ["Lần đo 2"], ["Lần đo 3"]],
+//     connectNull: false,
+//   },
+//   axis: {
+//     x: {
+//       type: "number",
+//       label: {
+//         text: "Time",
+//         position: "outer-center",
 //       },
 //     },
-//     data: {
-//       columns: [["Lần đo 1"], ["Lần đo 2"], ["Lần đo 3"]],
-//       connectNull: false,
-//     },
-//     axis: {
-//       x: {
-//         type: "number",
-//         label: {
-//           text: "Time",
-//           position: "outer-center",
-//         },
-//       },
-//       y: {
-//         max: 100,
-//         min: 10,
-//         label: {
-//           text: "%",
-//           position: "outer-middle",
-//         },
+//     y: {
+//       max: 100,
+//       min: 10,
+//       label: {
+//         text: "%",
+//         position: "outer-middle",
 //       },
 //     },
+//   },
+// });
+// // var chartcpu2 = c3.generate({
+// //     bindto: "#cpu2",
+// //     padding: {
+// //       left: 50,
+// //       right: 0,
+// //     },
+// //     point: {
+// //       show: false,
+// //     },
+// //     grid: {
+// //       x: {
+// //         show: true,
+// //       },
+// //       y: {
+// //         show: true,
+// //       },
+// //     },
+// //     data: {
+// //       columns: [["Lần đo 1"], ["Lần đo 2"], ["Lần đo 3"]],
+// //       connectNull: false,
+// //     },
+// //     axis: {
+// //       x: {
+// //         type: "number",
+// //         label: {
+// //           text: "Time",
+// //           position: "outer-center",
+// //         },
+// //       },
+// //       y: {
+// //         max: 100,
+// //         min: 10,
+// //         label: {
+// //           text: "%",
+// //           position: "outer-middle",
+// //         },
+// //       },
+// //     },
+// //   });
+// var clicked = false;
+
+// var time_click = 1;
+
+// var monitor;
+
+// var lando = [];
+
+// var tonglando = [[],[]];
+
+// var x = 0;
+
+// function reset() {
+//   if (clicked) document.getElementById("start/stop").click();
+//   clicked = false;
+
+//   time_click = 1;
+
+//   lando = [];
+
+//   tonglando = [[],[]];
+
+//   monitor = null;
+
+//   chartcpu1.load({
+//     columns: [
+//       ["Lần đo 1", 0],
+//       ["Lần đo 2", 0],
+//       ["Lần đo 3", 0],
+//     ],
 //   });
-var clicked = false;
+//   chartcpu2.load({
+//     columns: [
+//       ["Lần đo 1", 0],
+//       ["Lần đo 2", 0],
+//       ["Lần đo 3", 0],
+//     ],
+//   });
+// }
 
-var time_click = 1;
+// function toggle() {
+//   if (time_click == 4) return 0;
+//   if (!clicked == true) {
+//     clicked = true;
+//     document.getElementById("btn").innerHTML = "Stop";
+//     document.getElementById("start/stop").style.backgroundColor = "red";
 
-var monitor;
+//     lando = ["Lần đo " + time_click];
 
-var lando = [];
+//     tonglando[0].push(lando);
+//     tonglando[1].push(lando);
 
-var tonglando = [[],[]];
+//     lando = [];
 
-var x = 0;
+//     monitor = setInterval(() => {
 
-function reset() {
-  if (clicked) document.getElementById("start/stop").click();
-  clicked = false;
+//       let random = Math.floor(Math.random() * 101);
 
-  time_click = 1;
+//       tonglando[0][time_click - 1].push(random);
 
-  lando = [];
+//       lando.push(random);
 
-  tonglando = [[],[]];
+//       chartcpu1.load({
+//         columns: tonglando[0],
+//       });
 
-  monitor = null;
+//       random = Math.floor(Math.random() * 101);
 
-  chartcpu1.load({
-    columns: [
-      ["Lần đo 1", 0],
-      ["Lần đo 2", 0],
-      ["Lần đo 3", 0],
-    ],
-  });
-  chartcpu2.load({
-    columns: [
-      ["Lần đo 1", 0],
-      ["Lần đo 2", 0],
-      ["Lần đo 3", 0],
-    ],
-  });
-}
+//       tonglando[1][time_click - 1].push(random);
 
-function toggle() {
-  if (time_click == 4) return 0;
-  if (!clicked == true) {
-    clicked = true;
-    document.getElementById("btn").innerHTML = "Stop";
-    document.getElementById("start/stop").style.backgroundColor = "red";
+//       lando.push(random);
 
-    lando = ["Lần đo " + time_click];
+//       chartcpu2.load({
+//         columns: tonglando[1],
+//       });
 
-    tonglando[0].push(lando);
-    tonglando[1].push(lando);
+//       var max = Math.max.apply(null, lando);
 
-    lando = [];
-
-    monitor = setInterval(() => {
-
-      let random = Math.floor(Math.random() * 101);
-
-      tonglando[0][time_click - 1].push(random);
-
-      lando.push(random);
-
-      chartcpu1.load({
-        columns: tonglando[0],
-      });
-
-      random = Math.floor(Math.random() * 101);
-
-      tonglando[1][time_click - 1].push(random);
-
-      lando.push(random);
-
-      chartcpu2.load({
-        columns: tonglando[1],
-      });
-
-      var max = Math.max.apply(null, lando);
-
-      if (time_click == 1)
-        chart2.load({
-          columns: [["Lần đo 1", max]],
-        });
-      if (time_click == 2)
-        chart3.load({
-          columns: [["Lần đo 2", max]],
-        });
-      if (time_click == 3)
-        chart4.load({
-          columns: [["Lần đo 3", max]],
-        });
-    }, 500);
-  } else {
-    clearInterval(monitor);
-    clicked = false;
-    x = 0;
-    document.getElementById("btn").innerHTML = "Start";
-    document.getElementById("start/stop").style.backgroundColor = "#4caf50";
-    time_click++;
-  }
-}
+//       if (time_click == 1)
+//         chart2.load({
+//           columns: [["Lần đo 1", max]],
+//         });
+//       if (time_click == 2)
+//         chart3.load({
+//           columns: [["Lần đo 2", max]],
+//         });
+//       if (time_click == 3)
+//         chart4.load({
+//           columns: [["Lần đo 3", max]],
+//         });
+//     }, 500);
+//   } else {
+//     clearInterval(monitor);
+//     clicked = false;
+//     x = 0;
+//     document.getElementById("btn").innerHTML = "Start";
+//     document.getElementById("start/stop").style.backgroundColor = "#4caf50";
+//     time_click++;
+//   }
+// }

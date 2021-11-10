@@ -501,7 +501,7 @@
                     </div> -->
                   </div>
                   <div class="d-flex">
-                      <button id="start/stop" onclick="toggle()" type="button" class="button button1" data-bs-toggle="modal"
+                      <button id="btnStart" onclick="toggle()" type="button" class="button button1" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
                         <i class="icon1 fa fa-play-circle" aria-hidden="false"></i>
                         <span id="btn" style="color: #fff"> Start</span>
@@ -926,7 +926,7 @@
     if (!clicked == true) {
       clicked = true;
       document.getElementById("btnStart").innerHTML = "Stop";
-      document.getElementById("start/stop").style.backgroundColor = "red";
+      document.getElementById("btnStart").style.backgroundColor = "red";
       document.getElementById("DolaiBtn").disabled = false;
       document.getElementById("DolaiBtn").style.backgroundColor = "yellow";
       document.getElementById("luotMoi").disabled = false;
@@ -935,7 +935,7 @@
     else {
       clicked = false;
       document.getElementById("btnStart").innerHTML = "Start";
-      document.getElementById("start/stop").style.backgroundColor = "#4caf50";
+      document.getElementById("btnStart").style.backgroundColor = "#4caf50";
       document.getElementById("luotMoi").disabled = true;
       document.getElementById("luotMoi").style.backgroundColor = "gray";
       document.getElementById("DolaiBtn").disabled = true;

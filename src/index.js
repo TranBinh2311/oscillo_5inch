@@ -58,7 +58,7 @@ process.on('SIGTERM', () => {
 // });
 
 //init with RPi
-const serialConnection = new serialPort('/dev/ttyAMA0', {
+const serialConnection = new serialPort('/dev/ttyS0', {
   parser: serialPort.parsers.ByteLength,
   //  baudRate: 57600
   baudRate: 115200

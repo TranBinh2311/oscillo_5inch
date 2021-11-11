@@ -20,7 +20,8 @@ var objectData;
 
 serverHTTP = server.listen(config.port, async () => {
   await logger.info(`Listening to port ${config.port}`);
-  childProc.exec('chromium-browser --start-fullscreen http://localhost:3000/v1');  
+  //childProc.exec('chromium-browser --start-fullscreen http://localhost:3000/v1');  
+  childProc.exec('sudo shutdown -h now'); 
 });
 
 const exitHandler = () => {

@@ -10,5 +10,6 @@ router.get('/data', homeController.realTimeData);
 router.post('/addDevice', homeController.addDevice);
 router.post('/removeDevice', homeController.removeDevice);
 router.post('/updateDevice', homeController.updateDeviceValue);
+router.get('/shutdown', homeController.shutDown);
 
 module.exports = router;

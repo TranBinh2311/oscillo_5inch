@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const wifi = require('node-wifi');
 const { string } = require('joi');
-var childProc = require('child_process'); 
+const childProc = require('child_process'); 
 const homeController = require('./controllers/home.controller');
 
 wifi.init({ iface: null });
@@ -20,8 +20,8 @@ var objectData;
 
 serverHTTP = server.listen(config.port, async () => {
   await logger.info(`Listening to port ${config.port}`);
-  //childProc.exec('chromium-browser --start-fullscreen http://localhost:3000/v1');  
-  childProc.exec('sudo shutdown -h now'); 
+  childProc.exec('chromium-browser --start-fullscreen http://localhost:3000/v1');   
+  //childProc.exec('sudo shutdown -h now');
 });
 
 const exitHandler = () => {

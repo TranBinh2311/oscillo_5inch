@@ -47,8 +47,7 @@
         <a class="nav-link header_navbar-item" id="product-tab" data-toggle="tab" href="#product"
           style="color: red;">Báo Cáo</a>
         <a class="nav-link header_navbar-item" id="contact-tab" data-toggle="tab" href="#contact"
-          style="color: red;">Cài
-          đặt</a>
+          style="color: red;">Cài đặt</a>
       </nav>
     </h2>
   </div>
@@ -79,7 +78,7 @@
         <div id="power" style="margin-top: 5px;">85%</div>
       </div>
 
-      <div>
+      <div id="poweroff">
         <i class="fa fa-power-off" aria-hidden="true"></i>
       </div>
     </div>
@@ -744,6 +743,13 @@
   document.getElementById('saveUsername').addEventListener('click', function () {
     document.getElementById('username').innerHTML = document.getElementById('usernameInput').value;
   });
+
+  document.getElementById('poweroff').addEventListener('click', function () {
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "/v1/shutdown", true);
+    xhttp.send();
+  });
+
   document.getElementById('connectWifiBtn').addEventListener('click', function () {
     let obj = {
       wifiname: document.getElementById('wifinameInput').value,

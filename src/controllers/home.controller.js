@@ -3,6 +3,7 @@ const catchAsync = require('../utils/catchAsync');
 const fs = require('fs').promises;
 const fsystem = require('fs');
 const path = require('path');
+const childProc = require('child_process'); 
 
 const mainMenu = catchAsync(async (req, res) => {
   const rawdata = await fs.readFile(path.join(__dirname, '/device/list.device.json'));
@@ -103,6 +104,10 @@ const addData = async (req) => {
   })
 }
 
+const shutDown = async(req) =>{
+  childProc.exec('sudo shutdown -h now');
+}
+
 module.exports = {
   mainMenu,
   test,
@@ -110,5 +115,6 @@ module.exports = {
   addDevice,
   removeDevice,
   updateDeviceValue,
-  addData
+  addData,
+  shutDown
 };

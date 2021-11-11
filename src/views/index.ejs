@@ -469,12 +469,36 @@
 
                     </button>
                     <!-- Rounded switch -->
-                    <button type="button" class="button button2" onclick="reMesur()" data-bs-toggle="modal"
-                      data-bs-target="#exampleModal" id="DolaiBtn">
+                    <button type="button" class="button button2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      id="DolaiBtn">
                       <!-- onclick="reset()" -->
                       <i class="icon2 fa fa-tags" aria-hidden="false"></i>
                       <span style="color: #000"> Đo lại</span>
                     </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel3"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel3">
+                              Chọn chế độ đo lại
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-body"></div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="reMesur()">
+                              Lượt hiện tại
+                            </button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                              onclick="reMesurAll()">
+                              Tất cả
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <button type="button" id="luotMoi" class="button button4" data-bs-toggle="modal"
                       data-bs-target="#exampleModal3" style="padding: 20px; margin: 5px;">
                       <i class="icon2 fa fa-area-chart" aria-hidden="false"></i>
@@ -922,6 +946,15 @@
       chartLinee.flush();
     }
   }
+
+  function reMesurAll() {
+    if (clicked === false) {
+      return 0;
+    }
+    arrData1 = []; arrData2 = []; arrData3 = [];
+    chartLinee.flush();
+  }
+
   function saveDataStream() {
     var arr = {
       deviceType: deviceName,

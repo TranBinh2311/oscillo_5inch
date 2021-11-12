@@ -95,11 +95,37 @@
       <div class="body row">
         <!--  ==================================== Thanh slide bar====================================-->
         <!--  ========================================================================================-->
-        <div id="queueDevice" class="list col-md-2 col-sm-12" style="padding-left: 25px;">
-          <% listDeivce.forEach(function(listd) { %>
-            <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section">
+        <div id="queueDevice" class="list col-md-3 col-sm-" style="padding-left: 25px;">
+          <div class="item opensection" data-target="monitor-section">
+            <div class="notifi">1</div>
+            <div class="lside">
+              <div class="temp">23°C</div>
+            </div>
+            <div class="rside">
+              <div class="title">
+                <span style="padding :10px"> Temp: </span>
+                <span style="padding :10px"> DHT11</span>
+              </div>
+            </div>
+          </div>
+          <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
+          <div class="item opensection" data-target="monitor-section">
+            <div class="notifi">2</div>
+            <div class="lside">
+              <div class="temp">23°C</div>
+            </div>
+            <div class="rside">
+              <div class="title">
+                <span style="padding :10px"> Hum: </span>
+                <span style="padding :10px"> SHT30</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- <% listDeivce.forEach(function(listd) { %> -->
+            <!-- <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section"> -->
               <!-- <div class="notifi" style=" visibility: hidden">1</div> -->
-              <div class="notifi"></div>
+              <!-- <div class="notifi"></div>
               <div class="lside">
                 <div class="image"></div>
                 <div class="temp">
@@ -119,13 +145,13 @@
                   <%=listd.lastUpdate%>
                 </div>
               </div>
-            </div>
-            <%}); %>
+            </div> -->
+            <!-- <%}); %> -->
         </div>
 
         <!--  ==================================== Khoi do thi====================================-->
         <!--  ========================================================================================-->
-        <div class="monitor-section chart-monitor col-md-10 col-sm-9" style="padding: 0;
+        <div class="monitor-section chart-monitor col-md-9 col-sm-9" style="padding: 0;
         margin: 0; display: flex;visibility: hidden;display: none;">
           <div class="chart">
             <div class="mdl-grid">
@@ -428,40 +454,12 @@
               <div class="monitor-section control-section monitor w-100">
                 <div class="monitorcontent w-100" style="display: flex;flex-wrap: wrap;">
                   <div style="display: flex;">
-                    <!-- <div style="width: 100%">
-                      <div class="row" style="min-width: max-content;">
-                        <div class="col-md-6" style="
-                            width: 100px;
-                            height: 100px;
-                            border-radius: 100%;
-                            background-color: white;
-                           
-                            ">
-                        </div>
-                        <div class="col-md-6">
-                          <div>
-                            <b>Đo độ ẩm</b>
-                          </div>
-                          <div>PT100</div>
-                          <div>2021-10-02 11:04</div>
-                        </div>
-                      </div>
-                      <span style="padding-left: 25px;">34,7 C</span>
-                    </div> -->
                   </div>
                   <div class="d-flex">
                     <button id="start/stop" onclick="toggle()" type="button" class="button button1"
                       data-bs-toggle="modal" data-bs-target="#exampleModal5">
                       <i class="icon1 fa fa-play-circle" aria-hidden="false"></i>
                       <span id="btnStart" style="color: #fff"> Start</span>
-                      <!-- hhiih -->
-                      <!-- hhiih -->
-                      <!-- hhiih -->
-                      <!-- hhiih -->
-                      <!-- hhiih -->
-                      <!-- hhiih -->
-                      <!-- hhiih -->
-                      <!-- hhiih -->
                       <!-- hhiih -->
                       <!-- hhiih -->
                       <!-- hhiih -->
@@ -909,6 +907,8 @@
       document.getElementById("lastDataUpdate").innerHTML = lastValue;
     }
   });
+
+  // arr 100 phan tu tu dong dung 
   function newMer() {
     countMesur += 1;
     if (countMesur === 3) {

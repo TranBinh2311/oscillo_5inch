@@ -305,8 +305,9 @@ div.chart {
   width: 80px;
 }
 .rside {
+ 
   width: 60%;
-  text-align: right;
+  text-align: center;
   font-style: italic;
   padding: 5px;
 }
@@ -319,18 +320,24 @@ div.chart {
   position: relative;
 }
 .temp {
+  position:absolute;
+  left: 120px;
+  font-size: 30px;
   margin: 3px;
   padding-left: 20px;
   position: absolute;
   bottom: 16px;
 }
 .title {
+  padding-top: 10px;
   width: 100%;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   white-space: nowrap;
   margin-bottom: 8px;
-  margin-right: 10px;
+  position: absolute;
+  top: 0px;
+  right: 10px;
 }
 .type {
   width: 100%;
@@ -373,7 +380,7 @@ div.chart {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 20px 40px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -504,11 +511,11 @@ div.chart {
   display: none;
 }
 .control-section{
-    margin: 8px;
-    background-color: #b8b8b8;
-    padding: 20px;
-    justify-content: center;
-    visibility: visible;
+  margin: 20px;
+  background-color: none;
+  padding: 0px;
+  justify-content: center;
+  visibility: visible;
 }
 .control-section button{
     display: flex;

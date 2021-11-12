@@ -30,7 +30,7 @@ $(".list .item").on("click", function () {
         //$(".list .item").removeClass("green").removeClass("active");
     item_display = $(".list .item.green").length;
 
-    if(item_display != 2 || $(this).hasClass('green')){
+    if(item_display != 1 || $(this).hasClass('green')){
 
         $(this).toggleClass("green");
 
@@ -39,7 +39,8 @@ $(".list .item").on("click", function () {
     
     item_display = $(".list .item.green").length;
 
-    if(item_display >= 2){
+    if(item_display >= 1){
+        $('.monitor-section').show();
         $('.cpu_chart_panel').show();
     }
     else{
@@ -47,9 +48,13 @@ $(".list .item").on("click", function () {
         if(item_display == 1){
             $('#cpu_chart_panel2').hide();
             $('#cpu_chart_panel1').show();
+            $('.monitor-section').show();
         }
         else
-            $('.cpu_chart_panel').hide();
+        {
+          $('.monitor-section').hide();
+          $('.cpu_chart_panel').hide();
+        }  
     }
 });
 $(".opensection").on("click", function () {
@@ -248,45 +253,45 @@ $(".opensection").on("click", function () {
 // //       },
 // //     },
 // //   });
-// var clicked = false;
+var clicked = false;
 
-// var time_click = 1;
+var time_click = 1;
 
-// var monitor;
+var monitor;
 
-// var lando = [];
+var lando = [];
 
-// var tonglando = [[],[]];
+var tonglando = [[],[]];
 
-// var x = 0;
+var x = 0;
 
-// function reset() {
-//   if (clicked) document.getElementById("start/stop").click();
-//   clicked = false;
+function reset() {
+  if (clicked) document.getElementById("start/stop").click();
+  clicked = false;
 
-//   time_click = 1;
+  time_click = 1;
 
-//   lando = [];
+  lando = [];
 
-//   tonglando = [[],[]];
+  tonglando = [[],[]];
 
-//   monitor = null;
+  monitor = null;
 
-//   chartcpu1.load({
-//     columns: [
-//       ["Lần đo 1", 0],
-//       ["Lần đo 2", 0],
-//       ["Lần đo 3", 0],
-//     ],
-//   });
-//   chartcpu2.load({
-//     columns: [
-//       ["Lần đo 1", 0],
-//       ["Lần đo 2", 0],
-//       ["Lần đo 3", 0],
-//     ],
-//   });
-// }
+  chartcpu1.load({
+    columns: [
+      ["Lần đo 1", 0],
+      ["Lần đo 2", 0],
+      ["Lần đo 3", 0],
+    ],
+  });
+  chartcpu2.load({
+    columns: [
+      ["Lần đo 1", 0],
+      ["Lần đo 2", 0],
+      ["Lần đo 3", 0],
+    ],
+  });
+}
 
 // function toggle() {
 //   if (time_click == 4) return 0;

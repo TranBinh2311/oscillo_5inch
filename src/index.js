@@ -59,12 +59,13 @@ process.on('SIGTERM', () => {
 // });
 
 //init with RPi
+// khoi tao serial
 const serialConnection = new serialPort('/dev/ttyAMA0', {
   parser: serialPort.parsers.ByteLength,
   //  baudRate: 57600
   baudRate: 115200
 });
-
+// kiem tra cong uart
 function checkPort(path) {
   return new Promise((resolve, reject) => {
     let sock = new serialPort(path, { baudRate: 9600 }, (err, data) => {
@@ -100,7 +101,7 @@ async function findConnectedPort() {
 
 
 
-
+// lay list device gui len giao dien
 async function main() {
   let connectedPath = await findConnectedPort();
   if (connectedPath === null) {
@@ -116,10 +117,12 @@ async function main() {
       }
     });
   }
-}
+} 
+
 var fullData = '';
 var stringValidate = false;
 //on data callback broadcast to the default socketio connection
+//tach 2 ban ghi roi ghep lai lam 1
 serialConnection.on("open", function () {
   serialConnection.on('data', function (data) {
     main();
@@ -142,7 +145,7 @@ serialConnection.on("open", function () {
   });
 });
 
-
+// connect socket
 io.on('connection', (socket) => {
   socket.on('connectWiFi', (msg) => {
     console.log('message: ' + msg);

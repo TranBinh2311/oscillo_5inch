@@ -27,35 +27,35 @@ $(".toggle-chart-table-2").on("click", function () {
 var item_display = 0;
 
 $(".list .item").on("click", function () {
-        //$(".list .item").removeClass("green").removeClass("active");
-    item_display = $(".list .item.green").length;
+  //$(".list .item").removeClass("green").removeClass("active");
+item_display = $(".list .item.green").length;
 
-    if(item_display != 1 || $(this).hasClass('green')){
+if(item_display != 1 || $(this).hasClass('green')){
 
-        $(this).toggleClass("green");
+  $(this).toggleClass("green");
 
-        $(this).find(".notifi").toggle();
-    }
-    
-    item_display = $(".list .item.green").length;
+  $(this).find(".notifi").toggle();
+}
 
-    if(item_display >= 1){
-        $('.monitor-section').show();
-        $('.cpu_chart_panel').show();
-    }
-    else{
+item_display = $(".list .item.green").length;
 
-        if(item_display == 1){
-            $('#cpu_chart_panel2').hide();
-            $('#cpu_chart_panel1').show();
-            $('.monitor-section').show();
-        }
-        else
-        {
-          $('.monitor-section').hide();
-          $('.cpu_chart_panel').hide();
-        }  
-    }
+if(item_display >= 1){
+  $('.monitor-section').show();
+  $('.cpu_chart_panel').show();
+}
+else{
+
+  if(item_display == 1){
+      $('#cpu_chart_panel2').hide();
+      $('#cpu_chart_panel1').show();
+      $('.monitor-section').show();
+  }
+  else
+  {
+      $('.monitor-section').hide();
+      $('.cpu_chart_panel').hide();
+  }
+}
 });
 $(".opensection").on("click", function () {
   $(this).toggleClass("active");

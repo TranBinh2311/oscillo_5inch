@@ -95,7 +95,7 @@
       <div class="body row">
         <!--  ==================================== Thanh slide bar====================================-->
         <!--  ========================================================================================-->
-        <div id="queueDevice" class="list col-md-3 col-sm-" style="padding-left: 25px;">
+        <!-- <div id="queueDevice" class="list col-md-3 col-sm-" style="padding-left: 25px;">
           <div class="item opensection" data-target="monitor-section">
             <div class="notifi">1</div>
             <div class="lside">
@@ -104,9 +104,9 @@
             <div class="rside">
               <div class="title">Hum: <b>SHT30</b></div> 
             </div>
-          </div>
+          </div> -->
           <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
-          <div class="item opensection" data-target="monitor-section">
+          <!-- <div class="item opensection" data-target="monitor-section">
             <div class="notifi">2</div>
             <div class="lside">
               <div class="temp">23°C</div>
@@ -114,34 +114,29 @@
             <div class="rside">
               <div class="title">Hum: <b>SHT30</b></div> 
             </div>
-          </div>
+          </div> -->
 
-          <!-- <% listDeivce.forEach(function(listd) { %> -->
-            <!-- <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section"> -->
-              <!-- <div class="notifi" style=" visibility: hidden">1</div> -->
-              <!-- <div class="notifi"></div>
-              <div class="lside">
-                <div class="image"></div>
-                <div class="temp">
-                  <strong>
-                    <%=listd.lastValue%>
-                  </strong>
+          <div id="queueDevice" class="list col-md-3 col-sm-3" style="padding-left: 25px;">
+            <% listDeivce.forEach(function(listd) { %>
+              <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section">
+                <!-- <div class="notifi" style=" visibility: hidden">1</div> -->
+                <div class="notifi"></div>
+                <div class="lside">
+                  <div class="temp">
+                    <strong>
+                      <%=listd.lastValue%>
+                    </strong>
+                  </div>
+                </div>
+                <div class="rside">
+                  <div class="title">
+                    <%=listd.deviceType%> <b><%=listd.deviceName%></b>
+                  </div>
                 </div>
               </div>
-              <div class="rside">
-                <div class="title">
-                  <%=listd.deviceType%>
-                </div>
-                <div class="type">
-                  <%=listd.deviceName%>
-                </div>
-                <div class="date">
-                  <%=listd.lastUpdate%>
-                </div>
-              </div>
-            </div> -->
-            <!-- <%}); %> -->
-        </div>
+              <%}); %>
+          </div>
+        
 
         <!--  ==================================== Khoi do thi====================================-->
         <!--  ========================================================================================-->

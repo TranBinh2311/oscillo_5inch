@@ -79,15 +79,8 @@
       </div>
       
       <div id="poweroff">
-        <i class="fa fa-power-off" aria-hidden="true" id = "btnPower"></i>
+        <i class="fa fa-power-off" aria-hidden="true" ></i>
       </div>
-      <script>
-        const powe_btn = document.getElementById("btnPower")
-        powe_btn.addEventListener('click', async () => {
-          await childProc.exec('sudo shutdown -h now');
-        })
-      </script>
-
     </div>
   </div>
 </header>

@@ -118,22 +118,25 @@
           </div> -->
 
           <div id="queueDevice" class="list col-md-3 col-sm-3" style="padding-left: 25px;">
-            <% listDeivce.forEach(function(listd) { %>
-              <div id=<%=listd.deviceId%> class="item opensection" data-target="monitor-section">
-                <!-- <div class="notifi" style=" visibility: hidden">1</div> -->
-                <div class="notifi"></div>
-                <div class="lside">
-                  <div class="temp">
-                      <%=listd.lastValue%>
-                  </div>
-                </div>
-                <div class="rside">
-                  <div class="title">
-                    <%=listd.deviceType%> <b><%=listd.deviceName%></b>
-                  </div>
-                </div>
+            <div class="item opensection" data-target="monitor-section">
+              <div class="notifi">1</div>
+              <div class="lside">
+                <div class="temp">23°C</div>
               </div>
-              <%});%>
+              <div class="rside">
+                <div class="title">Temp: <b>DHT11</b></div> 
+              </div>
+            </div>
+            <!--  ==================================== Khoi con mau xanh trong thanh slide bar====================================-->
+            <div class="item opensection" data-target="monitor-section">
+              <div class="notifi">2</div>
+              <div class="lside">
+                <div class="temp">85%</div>
+              </div>
+              <div class="rside">
+                <div class="title">Hum: <b>SHT30</b></div> 
+              </div>
+            </div>
           </div>
         
 
